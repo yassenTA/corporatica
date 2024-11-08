@@ -1,0 +1,19 @@
+Invoice number,5101668064,,,,,,,,,,,,,,,
+Invoice date,10/31/2024,,,,,,,,,,,,,,,
+Due date,,,,,,,,,,,,,,,,
+Billing ID,7571-0546-4433,,,,,,,,,,,,,,,
+Billing account ID,010473-663C2E-203B2B,,,,,,,,,,,,,,,
+Currency,USD,,,,,,,,,,,,,,,
+Currency exchange rate,1,,,,,,,,,,,,,,,
+Total amount due,$37.75 ,,,,,,,,,,,,,,,
+Billing account name,Billing account ID,Project name,Project ID,Project hierarchy,Service description,Service ID,SKU description,SKU ID,Credit type,Cost type,Usage start date,Usage end date,Usage amount,Usage unit,Unrounded Cost ($),Cost ($)
+My Billing Account,010473-663C2E-203B2B,IE-Learn,ie-learn-f8e5a,[Project not associated with any folders or organizations],Gemini API,AEFD-7695-64FA,GenerateContent input token count for Gemini 1.5 Flash when input is up to 128k tokens,D8AE-AF3C-415B,,Usage,10/2/2024,10/26/2024,"967,386",count,0.072468,0.07
+My Billing Account,010473-663C2E-203B2B,IE-Learn,ie-learn-f8e5a,[Project not associated with any folders or organizations],Gemini API,AEFD-7695-64FA,Gemini Pro Output Tokens,C900-69A8-6D5A,,Usage,10/2/2024,10/27/2024,"12,982",count,0.019466,0.02
+My Billing Account,010473-663C2E-203B2B,IE-Learn,ie-learn-f8e5a,[Project not associated with any folders or organizations],Gemini API,AEFD-7695-64FA,GenerateContent output token count for Gemini 1.5 Flash when input is up to 128k tokens,7DF3-1F04-931A,,Usage,10/2/2024,10/26/2024,"53,162",count,0.015871,0.02
+My Billing Account,010473-663C2E-203B2B,IE-Learn,ie-learn-f8e5a,[Project not associated with any folders or organizations],Gemini API,AEFD-7695-64FA,GenerateContent input token count for Gemini 1.5 Pro when input is up to 128k tokens,F96A-04DD-137A,,Usage,10/1/2024,10/31/2024,"22,003,951",count,27.504023,27.5
+My Billing Account,010473-663C2E-203B2B,IE-Learn,ie-learn-f8e5a,[Project not associated with any folders or organizations],Gemini API,AEFD-7695-64FA,GenerateContent output token count for Gemini 1.5 Pro when input is up to 128k tokens,07DF-2B7B-17BC,,Usage,10/1/2024,10/31/2024,"1,083,136",count,5.41568,5.42
+My Billing Account,010473-663C2E-203B2B,IE-Learn,ie-learn-f8e5a,[Project not associated with any folders or organizations],Gemini API,AEFD-7695-64FA,Gemini Pro Input Tokens,AC9B-C746-1501,,Usage,10/1/2024,10/30/2024,"157,423",count,0.07869,0.08
+My Billing Account,010473-663C2E-203B2B,IE-Learn,ie-learn-f8e5a,[Project not associated with any folders or organizations],,,VAT (14.0%),,,Tax,,,,,4.639467,4.64
+My Billing Account,010473-663C2E-203B2B,[Charges not specific to a project],,,,,VAT (14.0%),,,Tax,,,,,0.000533,0
+,,,,,,,,,,Rounding error,,,,,0.003802,0
+,,,,,,,,,,Total,,,,,37.75,37.75
