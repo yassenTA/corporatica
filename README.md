@@ -1,4 +1,6 @@
 Corporatica
+
+
 Corporatica is a comprehensive platform designed to facilitate advanced tabular data processing, image manipulation, and text analysis through Django and Flask-based APIs. This repository integrates various data manipulation techniques, machine learning models, and visualization tools to provide flexible solutions for businesses and developers.
 
 Features
