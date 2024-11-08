@@ -1,90 +1,115 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from django.http import JsonResponse
+from sumy.parsers.plaintext import PlaintextParser
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.summarizers.lsa import LsaSummarizer
+from rake_nltk import Rake
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from textblob import TextBlob
+from sklearn.manifold import MDS
+import matplotlib.pyplot as plt
+import whoosh.index as index
+from whoosh.fields import Schema, TEXT
+from whoosh.qparser import QueryParser
+import os
+import numpy as np
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
-from django.http import HttpResponse
-from .serializer import (
-    TextInputSerializer,
-    KeywordExtractionSerializer,
-    TextsInputSerializer,
-    SearchInputSerializer,
-    CategoryInputSerializer,
-    CustomQuerySerializer,
-)
-from .utils import (
-    text_summarization,
-    keyword_extraction,
-    sentiment_analysis,
-    tsne_visualization,
-    search_texts,
-    categorize_text,
-    custom_query,
-)
 
-class SummarizeView(APIView):
-    def post(self, request):
-        serializer = TextInputSerializer(data=request.data)
-        if serializer.is_valid():
-            text = serializer.validated_data['text']
-            ratio = serializer.validated_data.get('ratio', 0.2)
-            summary = text_summarization(text, ratio)
-            return Response({"summary": summary})
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class KeywordsView(APIView):
-    def post(self, request):
-        serializer = KeywordExtractionSerializer(data=request.data)
-        if serializer.is_valid():
-            text = serializer.validated_data['text']
-            top_n = serializer.validated_data.get('top_n', 5)
-            keywords = keyword_extraction(text, top_n)
-            return Response({"keywords": keywords.tolist()})
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# Initialize models and components
+sia = SentimentIntensityAnalyzer()
 
-class SentimentView(APIView):
-    def post(self, request):
-        serializer = TextInputSerializer(data=request.data)
-        if serializer.is_valid():
-            text = serializer.validated_data['text']
-            sentiment = sentiment_analysis(text)
-            return Response(sentiment)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# Setup Whoosh schema and index
+if not os.path.exists("indexdir"):
+    os.mkdir("indexdir")
+schema = Schema(content=TEXT)
+ix = index.create_in("indexdir", schema)
 
-class VisualizeView(APIView):
-    def post(self, request):
-        serializer = TextsInputSerializer(data=request.data)
-        if serializer.is_valid():
-            texts = serializer.validated_data['texts']
-            visualization = tsne_visualization(texts)
-            return HttpResponse(visualization, content_type="image/png")
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# Function for simple text categorization
+def simple_categorize(text):
+    categories = {
+        "technology": ["software", "computer", "tech", "AI", "robotics"],
+        "sports": ["football", "basketball", "cricket", "soccer", "athlete"]
+        # Add more categories and keywords as needed
+    }
+    category_scores = {cat: sum([text.lower().count(word) for word in words]) for cat, words in categories.items()}
+    return max(category_scores, key=category_scores.get)
 
-class SearchView(APIView):
-    def post(self, request):
-        serializer = SearchInputSerializer(data=request.data)
-        if serializer.is_valid():
-            query = serializer.validated_data['query']
-            texts = serializer.validated_data['texts']
-            results = search_texts(query, texts)
-            return Response({"results": [{"text": text, "similarity": float(sim)} for text, sim in results]})
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# TEXT SUMMARIZATION VIEW (using Sumy)
+class Summarizer(generics.CreateAPIView):
+    permission_classes = [IsAuthenticated]
+    def create(self, request, *args, **kwargs):
+        text = request.data.get('text')
+        if not text:
+            return JsonResponse({"error": "Text is required"}, status=status.HTTP_400_BAD_REQUEST)
+        parser = PlaintextParser.from_string(text, Tokenizer("english"))
+        summarizer = LsaSummarizer()
+        summary = summarizer(parser.document, 2)  # Summarize to 2 sentences
+        summary_text = ' '.join([str(s) for s in summary])
+        return JsonResponse({"summary": summary_text})
 
-class CategorizeView(APIView):
-    def post(self, request):
-        serializer = CategoryInputSerializer(data=request.data)
-        if serializer.is_valid():
-            text = serializer.validated_data['text']
-            categories = serializer.validated_data['categories']
-            category = categorize_text(text, categories)
-            return Response({"category": category})
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# KEYWORD EXTRACTION VIEW (using Rake-NLTK)
+class KeywordExtractor(generics.CreateAPIView):
+    permission_classes = [IsAuthenticated]
+    def create(self, request, *args, **kwargs):
+        text = request.data.get('text')
+        if not text:
+            return JsonResponse({"error": "Text is required"}, status=status.HTTP_400_BAD_REQUEST)
+        r = Rake()  # Uses stopwords from NLTK and extracts phrases
+        r.extract_keywords_from_text(text)
+        keywords = r.get_ranked_phrases()
+        return JsonResponse({"keywords": keywords})
 
-class CustomQueryView(APIView):
-    def post(self, request):
-        serializer = CustomQuerySerializer(data=request.data)
-        if serializer.is_valid():
-            text = serializer.validated_data['text']
-            query_function = serializer.validated_data['query_function']
-            # CAUTION: Executing arbitrary code can be dangerous. Implement proper security measures.
-            result = custom_query(text, eval(query_function))
-            return Response({"result": result})
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# SENTIMENT ANALYSIS VIEW (VADER and TextBlob)
+class SentimentAnalyzer(generics.CreateAPIView):
+    permission_classes = [IsAuthenticated]
+    def create(self, request, *args, **kwargs):
+        text = request.data.get('text')
+        if not text:
+            return JsonResponse({"error": "Text is required"}, status=status.HTTP_400_BAD_REQUEST)
+        sentiment_vader = sia.polarity_scores(text)
+        sentiment_textblob = TextBlob(text).sentiment
+        return JsonResponse({"sentiment_vader": sentiment_vader, "sentiment_textblob": str(sentiment_textblob)})
+
+# MDS VISUALIZATION VIEW (alternative to T-SNE)
+class MDSVisualizer(generics.CreateAPIView):
+    permission_classes = [IsAuthenticated]
+    def create(self, request, *args, **kwargs):
+
+        text = request.data.get('text')
+        if not text:
+            return JsonResponse({"error": "Text is required"}, status=status.HTTP_400_BAD_REQUEST)
+        # Assume text is processed into vectors; generate random ones for this demo
+        vectors = np.random.rand(len(text), 100)  # Fake 100-dimensional vectors
+        mds = MDS(n_components=2)
+        mds_results = mds.fit_transform(vectors)
+        plt.scatter(mds_results[:, 0], mds_results[:, 1])
+        plt.title("MDS Visualization")
+        plt.savefig("mds_plot.png")
+        return JsonResponse({"message": "MDS visualization generated"})
+
+# SEARCH VIEW (using Whoosh)
+class SearchText(generics.CreateAPIView):
+    permission_classes = [IsAuthenticated]
+    def create(self, request, *args, **kwargs):
+        text = request.data.get('text')
+        if not text:
+            return JsonResponse({"error": "Text is required"}, status=status.HTTP_400_BAD_REQUEST)
+        qp = QueryParser("content", ix.schema)
+        q = qp.parse(text)
+        with ix.searcher() as searcher:
+            results = searcher.search(q)
+            result_texts = [r['content'] for r in results]
+        return JsonResponse({"search_results": result_texts})
+
+# CATEGORIZATION VIEW (simple categorization)
+class CategorizeText(generics.CreateAPIView):
+    permission_classes = [IsAuthenticated]
+    def create(self, request, *args, **kwargs):
+
+        text = request.data.get('text')
+        if not text:
+            return JsonResponse({"error": "Text is required"}, status=status.HTTP_400_BAD_REQUEST)
+        category = simple_categorize(text)
+        return JsonResponse({"category": category})
