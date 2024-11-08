@@ -13,8 +13,10 @@ from .serializer import DataSetSerializer
 
 class UploadFileView(generics.CreateAPIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = DataSetSerializer
 
     @swagger_auto_schema(
+        tags=["Data Management"],
         operation_description="Upload a CSV file to create a new dataset.",
         request_body=openapi.Schema(
             type=openapi.TYPE_OBJECT,
@@ -58,6 +60,26 @@ class GetDatasetView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = DataSetSerializer
 
+    @swagger_auto_schema(
+        tags=["Data Management"],
+        operation_description="Retrieve a dataset by its ID.",
+        manual_parameters=[
+            openapi.Parameter(
+                "dataset_id",
+                openapi.IN_QUERY,
+                description="ID of the dataset",
+                type=openapi.TYPE_INTEGER,
+                required=True,
+            )
+        ],
+        responses={
+            status.HTTP_200_OK: openapi.Response(
+                description="Dataset retrieved successfully",
+                schema=DataSetSerializer,
+            ),
+            status.HTTP_400_BAD_REQUEST: "Invalid dataset_id",
+        },
+    )
     def list(self, request, *args, **kwargs):
         data_set = DataSet.objects.filter(
             id=request.query_params.get("dataset_id")
@@ -74,6 +96,27 @@ class UpdateDatasetView(generics.UpdateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = DataSetSerializer
 
+    @swagger_auto_schema(
+        tags=["Data Management"],
+        operation_description="Update a dataset by its ID.",
+        manual_parameters=[
+            openapi.Parameter(
+                "dataset_id",
+                openapi.IN_QUERY,
+                description="ID of the dataset",
+                type=openapi.TYPE_INTEGER,
+                required=True,
+            )
+        ],
+        request_body=DataSetSerializer,
+        responses={
+            status.HTTP_200_OK: openapi.Response(
+                description="Dataset updated successfully",
+                schema=DataSetSerializer,
+            ),
+            status.HTTP_400_BAD_REQUEST: "Invalid dataset_id",
+        },
+    )
     def update(self, request, *args, **kwargs):
         data_set = DataSet.objects.filter(
             id=request.query_params.get("dataset_id")
@@ -92,6 +135,23 @@ class DeleteDatasetView(generics.DestroyAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = DataSetSerializer
 
+    @swagger_auto_schema(
+        tags=["Data Management"],
+        operation_description="Delete a dataset by its ID.",
+        manual_parameters=[
+            openapi.Parameter(
+                "dataset_id",
+                openapi.IN_QUERY,
+                description="ID of the dataset",
+                type=openapi.TYPE_INTEGER,
+                required=True,
+            )
+        ],
+        responses={
+            status.HTTP_200_OK: "Dataset deleted successfully",
+            status.HTTP_400_BAD_REQUEST: "Invalid dataset_id",
+        },
+    )
     def destroy(self, request, *args, **kwargs):
         data_set = DataSet.objects.filter(
             id=request.query_params.get("dataset_id")
@@ -107,8 +167,10 @@ class DeleteDatasetView(generics.DestroyAPIView):
 
 class CalculateStatisticsView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = DataSetSerializer
 
     @swagger_auto_schema(
+        tags=["Data Analysis"],
         operation_description="Calculate statistics (mean, median, mode, quartiles) for the dataset.",
         manual_parameters=[
             openapi.Parameter(
@@ -157,8 +219,10 @@ class CalculateStatisticsView(generics.ListAPIView):
 
 class PlotChartView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = DataSetSerializer
 
     @swagger_auto_schema(
+        tags=["Data Visualization"],
         operation_description="Generate a bar plot from the dataset.",
         manual_parameters=[
             openapi.Parameter(
@@ -198,8 +262,6 @@ class PlotChartView(generics.ListAPIView):
             {"message": "Chart created successfully", "chart": chart},
             status=status.HTTP_200_OK,
         )
-
-
-class DataSetViewSet(viewsets.ModelViewSet):
-    queryset = DataSet.objects.all()
-    serializer_class = DataSetSerializer
+# class DataSetViewSet(viewsets.ModelViewSet):
+#     queryset = DataSet.objects.all()
+#     serializer_class = DataSetSerializer
