@@ -34,7 +34,6 @@ cd corporatica
 bash
 Copy code
 pip install -r requirements.txt
-python -m nltk.downloader all
 Run the development server for Django:
 
 bash
@@ -44,7 +43,7 @@ python manage.py runserver
 
 bash
 Copy code
-
+python -m nltk.downloader all
 ## API Documentation
 1. Tabular Data API
 Endpoint: /api/tables/
