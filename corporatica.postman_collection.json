@@ -1,0 +1,1897 @@
+{
+	"info": {
+		"_postman_id": "dacd7d7f-f000-44d1-a5ac-ce84013262e2",
+		"name": "corporatica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21235719",
+		"_collection_link": "https://dark-water-858485.postman.co/workspace/corporatica~42ff622b-8dcc-4c42-8ab8-73d731e140b3/collection/21235719-dacd7d7f-f000-44d1-a5ac-ce84013262e2?action=share&source=collection_link&creator=21235719"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"yassen1\",\r\n    \"password\":\"1234\",\r\n    \"password2\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/signup",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"yassen1\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/login",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"yassen1\",\r\n    \"password\":\"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/login",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 12:01:00 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "587"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczOTE4ODg2MCwiaWF0IjoxNzMxNDEyODYwLCJqdGkiOiJkNjMyMDM1YzZiNTU0MGE5OWZlMDA5ZTZiMTk4YmZhMyIsInVzZXJfaWQiOiIyIiwidXNlcm5hbWUiOiJ5YXNzZW4xIn0.N9w38B-J8yQNcMQCzqK8wZgJL1QHS7od7JeMHKtbCjA\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50\",\n    \"user_data\": {\n        \"id\": 2,\n        \"username\": \"yassen1\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Image Processing",
+			"item": [
+				{
+					"name": "Upload Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/yasse/Downloads/freepik__3d-model-octane-render-volumetric-highly-detailed-__26852.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/api/upload_image",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"upload_image"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Upload Image",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/yasse/Downloads/freepik__3d-model-octane-render-volumetric-highly-detailed-__26852.jpeg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}/api/upload_image",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"upload_image"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 12:03:40 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "112"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"image\": \"/media/images/freepik__3d-model-octane-render-volumetric-highly-detailed-__26852_WsKFAW3.jpeg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Batch Upload",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/yasse/Downloads/freepik__3d-model-octane-render-volumetric-highly-detailed-__26852.jpeg"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/yasse/Downloads/freepik__3d-model-octane-render-volumetric-highly-detailed-__26851.jpeg"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/yasse/Downloads/4555555.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/api/batch_upload",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"batch_upload"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Batch Upload",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "images",
+											"type": "file",
+											"src": "/C:/Users/yasse/Downloads/freepik__3d-model-octane-render-volumetric-highly-detailed-__26852.jpeg"
+										},
+										{
+											"key": "images",
+											"type": "file",
+											"src": "/C:/Users/yasse/Downloads/freepik__3d-model-octane-render-volumetric-highly-detailed-__26851.jpeg"
+										},
+										{
+											"key": "images",
+											"type": "file",
+											"src": "/C:/Users/yasse/Downloads/4555555.jpeg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}/api/batch_upload",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"batch_upload"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 12:08:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "265"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"image\": \"/media/images/freepik__3d-model-octane-render-volumetric-highly-detailed-__26852_zXoSlIq.jpeg\"\n    },\n    {\n        \"id\": 4,\n        \"image\": \"/media/images/freepik__3d-model-octane-render-volumetric-highly-detailed-__26851.jpeg\"\n    },\n    {\n        \"id\": 5,\n        \"image\": \"/media/images/4555555.jpeg\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Color Histogram",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/color_histogram?image_id=1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"color_histogram"
+							],
+							"query": [
+								{
+									"key": "image_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resize Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image_id\":1,\r\n    \"width\":1000,\r\n    \"height\":100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/resize_image",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"resize_image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crop Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image_id\":2,\r\n    \"left\":10,\r\n    \"top\":10,\r\n    \"right\":100,\r\n    \"bottom\":100\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/crop_image",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"crop_image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Convert Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image_id\":1,\r\n    \"format\":\"png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/convert_image",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"convert_image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Text Analysis",
+			"item": [
+				{
+					"name": "Summarize",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"The internet has revolutionized the way we communicate, work, and access information. In the past, people had to rely on physical mail or landline phones to stay in touch, but now, instant messaging, email, and video calls have made global communication seamless. Additionally, the availability of vast amounts of information online has made learning and research more accessible than ever before. With just a few clicks, people can find answers to their questions, explore new topics, and stay informed about current events.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/summarize/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"summarize",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Summarize",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/summarize/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"summarize",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 12:29:58 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Text is required\"\n}"
+						},
+						{
+							"name": "Summarize",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"text\": \"The internet has revolutionized the way we communicate, work, and access information. In the past, people had to rely on physical mail or landline phones to stay in touch, but now, instant messaging, email, and video calls have made global communication seamless. Additionally, the availability of vast amounts of information online has made learning and research more accessible than ever before. With just a few clicks, people can find answers to their questions, explore new topics, and stay informed about current events.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/summarize/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"summarize",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 12:48:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "320"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"summary\": \"In the past, people had to rely on physical mail or landline phones to stay in touch, but now, instant messaging, email, and video calls have made global communication seamless. With just a few clicks, people can find answers to their questions, explore new topics, and stay informed about current events.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Keywords",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"The internet has revolutionized the way we communicate, work, and access information. In the past, people had to rely on physical mail or landline phones to stay in touch, but now, instant messaging, email, and video calls have made global communication seamless. Additionally, the availability of vast amounts of information online has made learning and research more accessible than ever before. With just a few clicks, people can find answers to their questions, explore new topics, and stay informed about current events.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/keywords/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"keywords",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Keywords",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"text\": \"The internet has revolutionized the way we communicate, work, and access information. In the past, people had to rely on physical mail or landline phones to stay in touch, but now, instant messaging, email, and video calls have made global communication seamless. Additionally, the availability of vast amounts of information online has made learning and research more accessible than ever before. With just a few clicks, people can find answers to their questions, explore new topics, and stay informed about current events.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/keywords/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"keywords",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 12:52:20 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "485"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"keywords\": [\n        \"made global communication seamless\",\n        \"explore new topics\",\n        \"made learning\",\n        \"video calls\",\n        \"vast amounts\",\n        \"physical mail\",\n        \"landline phones\",\n        \"instant messaging\",\n        \"information online\",\n        \"find answers\",\n        \"current events\",\n        \"access information\",\n        \"stay informed\",\n        \"stay\",\n        \"work\",\n        \"way\",\n        \"touch\",\n        \"revolutionized\",\n        \"research\",\n        \"rely\",\n        \"questions\",\n        \"people\",\n        \"people\",\n        \"past\",\n        \"internet\",\n        \"ever\",\n        \"email\",\n        \"communicate\",\n        \"clicks\",\n        \"availability\",\n        \"additionally\",\n        \"accessible\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Sentiment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"The internet has revolutionized the way we communicate, work, and access information. In the past, people had to rely on physical mail or landline phones to stay in touch, but now, instant messaging, email, and video calls have made global communication seamless. Additionally, the availability of vast amounts of information online has made learning and research more accessible than ever before. With just a few clicks, people can find answers to their questions, explore new topics, and stay informed about current events.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/sentiment/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"sentiment",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sentiment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"text\": \"The internet has revolutionized the way we communicate, work, and access information. In the past, people had to rely on physical mail or landline phones to stay in touch, but now, instant messaging, email, and video calls have made global communication seamless. Additionally, the availability of vast amounts of information online has made learning and research more accessible than ever before. With just a few clicks, people can find answers to their questions, explore new topics, and stay informed about current events.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/sentiment/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"sentiment",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 12:53:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "173"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sentiment_vader\": {\n        \"neg\": 0,\n        \"neu\": 1,\n        \"pos\": 0,\n        \"compound\": 0\n    },\n    \"sentiment_textblob\": \"Sentiment(polarity=0.06012396694214875, subjectivity=0.36264266036993315)\"\n}"
+						}
+					]
+				},
+				{
+					"name": "MDS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"The internet has revolutionized the way we communicate, work, and access information. In the past, people had to rely on physical mail or landline phones to stay in touch, but now, instant messaging, email, and video calls have made global communication seamless. Additionally, the availability of vast amounts of information online has made learning and research more accessible than ever before. With just a few clicks, people can find answers to their questions, explore new topics, and stay informed about current events.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/mds/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"mds",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "MDS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"text\": \"The internet has revolutionized the way we communicate, work, and access information. In the past, people had to rely on physical mail or landline phones to stay in touch, but now, instant messaging, email, and video calls have made global communication seamless. Additionally, the availability of vast amounts of information online has made learning and research more accessible than ever before. With just a few clicks, people can find answers to their questions, explore new topics, and stay informed about current events.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/mds/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"mds",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 12:55:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"MDS visualization generated\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Categorize",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"The internet has revolutionized the way we communicate, work, and access information. In the past, people had to rely on physical mail or landline phones to stay in touch, but now, instant messaging, email, and video calls have made global communication seamless. Additionally, the availability of vast amounts of information online has made learning and research more accessible than ever before. With just a few clicks, people can find answers to their questions, explore new topics, and stay informed about current events.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/categorize/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"categorize",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Categorize",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"text\": \"The internet has revolutionized the way we communicate, work, and access information. In the past, people had to rely on physical mail or landline phones to stay in touch, but now, instant messaging, email, and video calls have made global communication seamless. Additionally, the availability of vast amounts of information online has made learning and research more accessible than ever before. With just a few clicks, people can find answers to their questions, explore new topics, and stay informed about current events.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/categorize/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"categorize",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 13:01:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"category\": \"technology\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"The internet has revolutionized the way we communicate, work, and access information. In the past, people had to rely on physical mail or landline phones to stay in touch, but now, instant messaging, email, and video calls have made global communication seamless. Additionally, the availability of vast amounts of information online has made learning and research more accessible than ever before. With just a few clicks, people can find answers to their questions, explore new topics, and stay informed about current events.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/search/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"search",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"text\": \"The internet has revolutionized the way we communicate, work, and access information. In the past, people had to rely on physical mail or landline phones to stay in touch, but now, instant messaging, email, and video calls have made global communication seamless. Additionally, the availability of vast amounts of information online has made learning and research more accessible than ever before. With just a few clicks, people can find answers to their questions, explore new topics, and stay informed about current events.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/search/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"search",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 12:58:44 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "22"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"search_results\": []\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "tabular",
+			"item": [
+				{
+					"name": "Upload File",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/yasse/Downloads/Book1.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/api/upload_file",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"upload_file"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Upload File",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/yasse/Downloads/Book1.csv"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}/api/upload_file",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"upload_file"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 13:09:03 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "130"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"File uploaded successfully\",\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"Book1.csv\",\n        \"file\": \"http://127.0.0.1:8000/media/uploads/Book1.csv\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get File",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/get_file?dataset_id=3",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"get_file"
+							],
+							"query": [
+								{
+									"key": "dataset_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get File",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/get_file?dataset_id=3",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"get_file"
+									],
+									"query": [
+										{
+											"key": "dataset_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 13:10:20 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"name\": \"Book1.csv\",\n    \"file\": \"/media/uploads/Book1.csv\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update File",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "dataset_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/yasse/Downloads/Book1.csv"
+								},
+								{
+									"key": "name",
+									"value": "data set",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/api/update_file",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"update_file"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update File",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "dataset_id",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/yasse/Downloads/Book1.csv"
+										},
+										{
+											"key": "name",
+											"value": "data set",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}/api/update_file",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"update_file"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 13:12:52 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "PUT, PATCH, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"name\": \"data set\",\n    \"file\": \"/media/uploads/Book1_ly43nY8.csv\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete File",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/delete_file?dataset_id=3",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"delete_file"
+							],
+							"query": [
+								{
+									"key": "dataset_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Statistics",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/statistics?dataset_id=3",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"statistics"
+							],
+							"query": [
+								{
+									"key": "dataset_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Statistics",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/statistics?dataset_id=3",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"statistics"
+									],
+									"query": [
+										{
+											"key": "dataset_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 13:15:17 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "114"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"mean\": {\n        \"10\": 60\n    },\n    \"median\": {\n        \"10\": 60\n    },\n    \"mode\": {\n        \"10\": 20\n    },\n    \"quartiles\": {\n        \"10\": {\n            \"0.25\": 40,\n            \"0.5\": 60,\n            \"0.75\": 80\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNjcyMDYwLCJpYXQiOjE3MzE0MTI4NjAsImp0aSI6IjJjZmY3NjIwYzcyNjRlNDI5NGE1MTFkMGZhZDE2NjkwIiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6Inlhc3NlbjEifQ.0jKBbQvt2QbCxxep_raipyRlO100LqS-xeWQc1zZR50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/chart?dataset_id=3",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"chart"
+							],
+							"query": [
+								{
+									"key": "dataset_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Chart",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/chart?dataset_id=3",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"chart"
+									],
+									"query": [
+										{
+											"key": "dataset_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 13:15:54 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "87"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Chart created successfully\",\n    \"chart\": \"http://127.0.0.1:8000/media/plot.png\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
