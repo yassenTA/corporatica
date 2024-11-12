@@ -34,6 +34,7 @@ cd corporatica
 bash
 Copy code
 pip install -r requirements.txt
+python -m nltk.downloader all
 Run the development server for Django:
 
 bash
