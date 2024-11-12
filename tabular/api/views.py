@@ -119,7 +119,7 @@ class UpdateDatasetView(generics.UpdateAPIView):
     )
     def update(self, request, *args, **kwargs):
         data_set = DataSet.objects.filter(
-            id=request.query_params.get("dataset_id")
+            id=request.data.get("dataset_id")
         ).first()
         if data_set is None:
             return Response(

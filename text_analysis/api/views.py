@@ -1,3 +1,4 @@
+import nltk
 from django.http import JsonResponse
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
@@ -67,6 +68,15 @@ class Summarizer(generics.CreateAPIView):
         text = request.data.get('text')
         if not text:
             return JsonResponse({"error": "Text is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Check if punkt is downloaded, if not, download it
+        print(nltk.data.path)
+
+        try:
+            nltk.data.find('tokenizers/punkt')
+        except LookupError:
+            nltk.download('punkt')
+
         parser = PlaintextParser.from_string(text, Tokenizer("english"))
         summarizer = LsaSummarizer()
         summary = summarizer(parser.document, 2)  # Summarize to 2 sentences
@@ -212,7 +222,7 @@ class SearchText(generics.CreateAPIView):
         text = request.data.get('text')
         if not text:
             return JsonResponse({"error": "Text is required"}, status=status.HTTP_400_BAD_REQUEST)
-        qp = QueryParser("content", ix.schema)
+        qp = QueryParser("communicate", ix.schema)
         q = qp.parse(text)
         with ix.searcher() as searcher:
             results = searcher.search(q)
